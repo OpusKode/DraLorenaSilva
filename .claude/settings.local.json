@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\" 2>/dev/null || echo \"Pasta v9-6 não existe ainda\" *)",
+      "PowerShell(cd \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\"; npx --yes @babel/cli@7 --presets=@babel/preset-react app.jsx -o \"$env:TEMP\\\\v96.compiled.js\" 2>&1 | Select-Object -Last 10)",
+      "PowerShell(npm install -g @babel/core @babel/cli @babel/preset-react 2>&1)",
+      "PowerShell(cd \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\"; Compress-Archive -Path \"Dra__Lorena_Silva_-_v9-6\\\\index.html\",\"Dra__Lorena_Silva_-_v9-6\\\\styles.css\",\"Dra__Lorena_Silva_-_v9-6\\\\app.jsx\",\"Dra__Lorena_Silva_-_v9-6\\\\img\" -DestinationPath \"Dra__Lorena_Silva_-_v9-6.zip\" -Force; $f = Get-Item \"Dra__Lorena_Silva_-_v9-6.zip\"; \"Arquivo: $\\($f.Name\\) — Tamanho: $\\([math]::Round\\($f.Length/1KB\\)\\) KB\")",
+      "Bash(npx --yes @babel/core@7 --presets=@babel/preset-react app.jsx -o /tmp/v96_compiled.js)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const src=fs.readFileSync\\('app.jsx','utf8'\\); console.log\\('Lines:', src.split\\('\\\\n'\\).length, '| Size:', src.length, 'bytes'\\);\")",
+      "Bash(node -e ' *)",
+      "Bash(ls \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\\")"
+    ]
+  }
+}
