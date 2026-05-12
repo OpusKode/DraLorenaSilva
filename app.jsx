@@ -648,22 +648,21 @@ function PageSobre() {
         <div className="sobre-grid reveal">
           <div className="sobre-text">
             <p>
-              Sou fisioterapeuta especializada em escoliose, atendendo presencialmente em Belém / PA.
-              Trabalho exclusivamente com pessoas com escoliose há <strong>mais de 6 anos</strong> —
-              o que me permite oferecer um cuidado profundamente focado nessa condição.
+              Sou fisioterapeuta formada em 2020 e minha trajetória com o <strong>tratamento
+              da escoliose</strong> começou ainda durante a graduação. Entre 2017 e 2019, atuei como monitora nos primeiros cursos do <strong>Método
+              S4D – Brasil</strong>, realizados em Belém (PA), o que me proporcionou contato
+              precoce com <strong>abordagens específicas</strong> para o tratamento da escoliose.
             </p>
             <p>
-              Minha vivência com pacientes com escoliose me faz buscar sempre estar atualizada,
-              estudando entre Itália e Brasil. Formei-me em duas das principais abordagens conservadoras
-              do mundo: o método italiano <strong>SEAS</strong> (Scientific Exercise Approach to Scoliosis)
-              e o método brasileiro <strong>S4D</strong>, que reúne avaliação postural completa e estratégias
-              integradas de tratamento.
+              Em 2022, realizei minha capacitação na <strong>abordagem SEAS</strong> (Scientific
+              Exercise Approach to Scoliosis), método desenvolvido na Itália e
+              <strong>reconhecido internacionalmente</strong> no <strong>tratamento conservador da escoliose.</strong>
             </p>
             <p>
-              O que move o consultório é uma ideia simples: trazer o melhor resultado possível
-              e <strong>frear essa doença tão silenciosa</strong>. Cada coluna pede um plano próprio, e cada
-              paciente merece ser visto por inteiro — não só em uma curva no raio-X, mas em sua
-              rotina, seus medos e seus objetivos.
+              Desde então, venho acompanhando pacientes com escoliose utilizando <strong>exercícios específicos baseados em evidências científicas</strong>, com foco no
+              <strong>controle da progressão da curva</strong> e na <strong>melhora da qualidade de vida</strong>.
+              Meu objetivo é ajudar pacientes e famílias a compreender melhor a
+              escoliose e enfrentar o tratamento com mais <strong>segurança e orientação</strong>.
             </p>
           </div>
           <div className="sobre-photos">
@@ -1174,7 +1173,7 @@ function PageFAQ() {
    CONTATO
 ============================================================ */
 function PageContato() {
-  useEffect(function() {
+  useEffect(function () {
     var L = window.L;
     if (!L) return;
     var el = document.getElementById("lorena-map");
@@ -1191,7 +1190,7 @@ function PageContato() {
     });
 
     L.control.zoom({ position: "bottomright" }).addTo(map);
-    setTimeout(function() { map.invalidateSize(); }, 50);
+    setTimeout(function () { map.invalidateSize(); }, 50);
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
       attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> © <a href='https://carto.com/attributions'>CARTO</a>",
@@ -1244,17 +1243,17 @@ function PageContato() {
       minWidth: 220,
     });
 
-    var flyTimer = setTimeout(function() {
+    var flyTimer = setTimeout(function () {
       map.flyTo([LAT, LNG], 16, { duration: 2.2, easeLinearity: 0.28 });
     }, 400);
 
-    map.on("click", function() { map.scrollWheelZoom.enable(); });
+    map.on("click", function () { map.scrollWheelZoom.enable(); });
 
     var cont = map.getContainer();
     function onLeave() { map.scrollWheelZoom.disable(); }
     cont.addEventListener("mouseleave", onLeave);
 
-    return function() {
+    return function () {
       clearTimeout(flyTimer);
       cont.removeEventListener("mouseleave", onLeave);
       map.remove();
