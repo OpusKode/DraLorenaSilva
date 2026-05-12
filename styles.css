@@ -901,7 +901,6 @@ p { margin: 0 0 1em; }
 }
 .ba-showcase::before {
   /* small caption strip at top */
-  content: "ARQUIVO · ANTES & DEPOIS · 2026 · BELÉM / PA · ARQUIVO · ANTES & DEPOIS · 2026 · BELÉM / PA";
   position: absolute;
   top: 14px; left: 0; right: 0;
   text-align: center;

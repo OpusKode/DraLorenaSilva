@@ -241,11 +241,6 @@ function Sidebar({ route, mobileOpen, setMobileOpen }) {
           </a>
         ))}
       </nav>
-
-      <div className="side-stamp">
-        Escoliose<br />2026<br />Belém
-      </div>
-
       <div className="side-foot">
         <a className="side-cta btn-cta-animate" href={WHATSAPP} target="_blank" rel="noopener">
           Agendar avaliação
@@ -257,7 +252,7 @@ function Sidebar({ route, mobileOpen, setMobileOpen }) {
         </div>
         <div className="side-fig">
           <span>© 2026</span>
-          <span>CREFITO</span>
+          <span>Forjex</span>
         </div>
       </div>
     </aside>
@@ -289,27 +284,8 @@ function PageHead({ eyebrow, title, lede, code, location }) {
   return (
     <header className="page-head reveal">
       <div className="l">
-        {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
         <h1>{title}</h1>
         {lede ? <p className="lede">{lede}</p> : null}
-      </div>
-      <div className="meta">
-        {code ? (
-          <div className="row">
-            <span>Capítulo</span>
-            <strong>{code}</strong>
-          </div>
-        ) : null}
-        {location ? (
-          <div className="row">
-            <span>Local</span>
-            <strong>{location}</strong>
-          </div>
-        ) : null}
-        <div className="row">
-          <span>Edição</span>
-          <strong>2026</strong>
-        </div>
       </div>
     </header>
   );
@@ -391,7 +367,7 @@ function PageHome() {
             <div className="hero-text">
               <div className="hero-overline">
                 <span className="dot"></span>
-                <span className="cap"><strong>Fisioterapia · Escoliose</strong> · Belém / PA · Edição 2026</span>
+                <span className="cap"><strong>Fisioterapia · Escoliose</strong> · Belém / PA</span>
               </div>
 
               <h1 className="hero-h1">
@@ -423,13 +399,9 @@ function PageHome() {
             <div className="hero-photo-wrap">
               <div className="hero-photo">
                 <img src="img/01-hero-blazer-vinho.jpg" alt="Dra. Lorena Silva" />
-                <div className="stamp">
-                  Atendimento<br />2026<br />Belém
-                </div>
               </div>
               <div className="hero-photo-cap">
                 <span>Foto · Belém / PA</span>
-                <strong>★ Edição 2026</strong>
               </div>
             </div>
           </div>
@@ -490,7 +462,6 @@ function PageHome() {
               </div>
               <div className="intro-photo-cap">
                 <span>Foto · Belém / PA</span>
-                <strong>★ FIG. B</strong>
               </div>
             </div>
             <div className="intro-text">
@@ -567,7 +538,6 @@ function PageHome() {
               <div className="brace-photo">
                 <img src="img/03-dra-com-colete-3d.jpg" alt="Dra. Lorena Silva com o colete 3D" />
               </div>
-              <span className="brace-badge">★ FIG. C</span>
             </div>
             <div className="brace-content">
               <span className="brace-eyebrow">Recurso terapêutico</span>
@@ -699,7 +669,6 @@ function PageSobre() {
           <div className="sobre-photos">
             <div className="sobre-photo arched">
               <img src="img/02-dra-evento-escoliose.jpg" alt="Dra. Lorena em evento" />
-              <span className="cap">★ Evento · Itália</span>
             </div>
           </div>
         </div>
@@ -755,10 +724,8 @@ function PageTratamentos() {
   const sections = [
     {
       id: "avaliacao",
-      eyebrow: "Capítulo III · A",
       h: "Avaliação completa.",
       img: "img/04-atendimento-paciente.jpg",
-      badge: "Sessão única",
       flip: false,
       photoShape: "arched",
       p1: "O tratamento começa com uma avaliação detalhada, onde coleto todos os dados possíveis do paciente — histórico, sintomas, exame postural e análise de mobilidade.",
@@ -773,10 +740,8 @@ function PageTratamentos() {
     },
     {
       id: "fisio",
-      eyebrow: "Capítulo III · B",
       h: "Fisioterapia especializada.",
       img: "img/02-dra-evento-escoliose.jpg",
-      badge: "Tratamento ativo",
       flip: true,
       photoShape: "arched-bottom",
       p1: "O plano de tratamento é desenvolvido de acordo com o que mais você precisa corrigir nos achados da avaliação. Combinamos os métodos SEAS (Itália) e S4D (Brasil).",
@@ -791,10 +756,8 @@ function PageTratamentos() {
     },
     {
       id: "colete",
-      eyebrow: "Capítulo III · C",
       h: "O colete 3D, quando faz sentido.",
       img: "img/03-dra-com-colete-3d.jpg",
-      badge: "Quando indicado",
       flip: false,
       photoShape: "arched",
       p1: "A utilização do colete, quando indicado, é essencial para auxiliar na correção da curva — principalmente em pacientes com curvas moderadas a graves no estirão do crescimento.",
@@ -827,7 +790,6 @@ function PageTratamentos() {
             <div className={"tx-grid reveal" + (s.flip ? " flip" : "")}>
               <div className={"tx-photo " + s.photoShape}>
                 <img src={s.img} alt={s.h} />
-                <span className="badge">{s.badge}</span>
               </div>
               <div className="tx-content">
                 <span className="eyebrow">{s.eyebrow}</span>
@@ -916,7 +878,6 @@ function PageResultados() {
             <div className="res-card" key={c.code}>
               <div className="ph">
                 <img src={c.img} alt={c.title} />
-                <span className="badge">★ Arquivo {c.code}</span>
               </div>
               <div className="body">
                 <div className="head-row">
@@ -1018,10 +979,8 @@ function PageColete3D() {
           <div className="tx-grid reveal">
             <div className="tx-photo arched">
               <img src="img/03-dra-com-colete-3d.jpg" alt="Dra. Lorena Silva com o colete 3D" />
-              <span className="badge">Sob medida</span>
             </div>
             <div className="tx-content">
-              <span className="eyebrow">Capítulo V · A</span>
               <h2>Feito para o seu corpo,<br />não para um molde genérico.</h2>
               <p>O colete 3D não é um produto de prateleira. Ele é produzido por impressão tridimensional a partir de um escaneamento ou moldagem precisa do tronco — o que significa que ele se encaixa com exatidão nas curvas da sua coluna.</p>
               <p>Isso muda tudo: o ajuste é mais preciso, o uso é mais confortável, e a adesão ao tratamento aumenta — porque é muito mais fácil manter o uso de algo que foi feito exatamente para você.</p>
@@ -1049,10 +1008,8 @@ function PageColete3D() {
           <div className="tx-grid flip reveal">
             <div className="tx-photo arched-bottom">
               <img src="img/08-costas-com-raiox.jpg" alt="Raio-X de coluna com escoliose" />
-              <span className="badge">Critérios clínicos</span>
             </div>
             <div className="tx-content">
-              <span className="eyebrow">Capítulo V · B</span>
               <h2>Não é para todo mundo —<br />e isso é bom saber.</h2>
               <p>A indicação do colete depende de critérios clínicos bem definidos: principalmente o ângulo de Cobb — a medida da curvatura no raio-X —, a fase de crescimento do paciente e o histórico de progressão da curva.</p>
               <p>Em geral, é indicado para curvas entre 20° e 45° em pacientes ainda em crescimento ativo. Fora dessa janela, outros recursos podem ser mais eficazes. A avaliação é o que define — sem atalhos, sem regras fixas.</p>
@@ -1079,7 +1036,6 @@ function PageColete3D() {
         <div className="wrap">
           <div className="section-head reveal">
             <div className="l">
-              <span className="eyebrow">Capítulo V · C · Como funciona</span>
               <h2>Do primeiro contato<br />ao colete em uso.</h2>
             </div>
             <div className="r">
@@ -1109,7 +1065,6 @@ function PageColete3D() {
         <div className="wrap">
           <div className="section-head reveal">
             <div className="l">
-              <span className="eyebrow">Capítulo V · D · Vantagens</span>
               <h2>Por que o 3D<br />faz diferença.</h2>
             </div>
             <div className="r">
