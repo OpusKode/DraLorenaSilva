@@ -1,6 +1,9 @@
 # Dependências
 node_modules/
 
+# Claude (interno)
+.claude/
+
 # Editor
 .vscode/
 .idea/
