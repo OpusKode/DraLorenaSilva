@@ -786,7 +786,7 @@ function PageTratamentos() {
     {
       id: "fisio",
       h: "Fisioterapia especializada.",
-      img: "img/02-dra-evento-escoliose.jpg",
+      img: "img/05-paciente-com-progressao.jpg",
       flip: true,
       photoShape: "arched-bottom",
       p1: "O plano de tratamento é desenvolvido de acordo com o que mais você precisa corrigir nos achados da avaliação. Combinamos os métodos SEAS (Itália) e S4D (Brasil).",
@@ -1019,7 +1019,7 @@ function PageColete3D() {
         <div className="wrap">
           <div className="tx-grid flip reveal">
             <div className="tx-photo arched-bottom">
-              <img src="img/08-costas-com-raiox.jpg" alt="Raio-X de coluna com escoliose" />
+              <img src="img/06-esqueletos.jpg" alt="Raio-X de coluna com escoliose" />
             </div>
             <div className="tx-content">
               <h2>Não é para todo mundo —<br />e isso é bom saber.</h2>
