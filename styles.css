@@ -1960,6 +1960,17 @@ p { margin: 0 0 1em; }
   transition: transform .8s var(--ease-out);
 }
 .tx-photo:hover img { transform: scale(1.04); }
+
+/* moldura que se ajusta à proporção natural da imagem */
+.tx-photo--contain {
+  aspect-ratio: unset;
+  height: auto;
+}
+.tx-photo--contain img {
+  height: auto;
+  object-fit: initial;
+  position: static;
+}
 .tx-photo .badge {
   position: absolute;
   top: 24px; left: 24px;
