@@ -834,8 +834,8 @@ function PageTratamentos() {
         <section key={s.id} className={"tx-section" + (s.dark ? " dark" : "")}>
           <div className="wrap">
             <div className={"tx-grid reveal" + (s.flip ? " flip" : "")}>
-              <div className={"tx-photo " + s.photoShape}>
-                <img src={s.img} alt={s.h} style={s.imgFit ? { objectFit: s.imgFit } : undefined} />
+              <div className={"tx-photo " + s.photoShape + (s.imgFit ? " tx-photo--" + s.imgFit : "")}>
+                <img src={s.img} alt={s.h} />
               </div>
               <div className="tx-content">
                 <span className="eyebrow">{s.eyebrow}</span>
