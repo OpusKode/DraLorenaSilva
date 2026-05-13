@@ -2663,6 +2663,97 @@ p { margin: 0 0 1em; }
 .hero-ig-btn:hover .arr { transform: translateX(3px); color: var(--ink); }
 
 /* ============================================================
+   BEFORE/AFTER SLIDER · componente reutilizável
+============================================================ */
+.bas-wrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: pan-y;
+  background: var(--bg-2);
+  border: 1.5px solid var(--ink);
+  box-shadow: 0 1px 0 var(--rule-2), 0 12px 28px rgba(20, 21, 46, 0.08);
+}
+.bas-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  display: block;
+}
+.bas-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%);
+  z-index: 10;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35), 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.bas-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: white;
+  display: grid; place-items: center;
+  color: var(--accent);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.28), 0 0 0 1.5px rgba(0, 0, 0, 0.08);
+  transition: transform .2s var(--ease-back), box-shadow .2s var(--ease);
+}
+.bas-wrap:hover .bas-handle,
+.bas-wrap:active .bas-handle {
+  transform: translate(-50%, -50%) scale(1.13);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.32), 0 0 0 2px var(--accent);
+}
+.bas-handle svg { width: 18px; height: 18px; }
+.bas-label {
+  position: absolute;
+  top: 14px;
+  padding: 5px 11px;
+  background: rgba(10, 10, 20, 0.56);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--body);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  z-index: 5;
+  pointer-events: none;
+}
+.bas-l { left: 14px; }
+.bas-r { right: 14px; }
+
+/* ============================================================
+   SLIDER GRID · usado em /resultados e na home
+============================================================ */
+.slider-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.slider-card { width: 100%; }
+
+@media (max-width: 1080px) {
+  .slider-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .slider-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ============================================================
    REVEAL
 ============================================================ */
 .reveal {

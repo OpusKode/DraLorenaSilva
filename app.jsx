@@ -1,5 +1,5 @@
 /* global React, ReactDOM */
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const WHATSAPP = "https://wa.me/5591980876011";
 const INSTAGRAM = "https://instagram.com/lorenafisioterapeuta_";
@@ -123,6 +123,11 @@ const IconArrowLg = () => (
     <path d="M5 14h18M16 7l7 7-7 7" />
   </svg>
 );
+const IconSliderArrows = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 18l-6-6 6-6M15 6l6 6-6 6" />
+  </svg>
+);
 
 /* logo: an arch + spine within */
 const IconLogo = () => (
@@ -209,6 +214,77 @@ const IllPrint3D = () => (
     <circle cx="32" cy="26.5" r="1.2" fill="currentColor" stroke="none" />
   </svg>
 );
+
+/* ============================================================
+   CASOS DE RESULTADO
+   Para adicionar fotos reais: coloque os arquivos em img/resultados/
+   seguindo o padrão casoN-antes.jpg / casoN-depois.jpg e atualize
+   os caminhos abaixo.
+============================================================ */
+const CASOS = [
+  { id: 1, antes: "img/resultados/caso1-antes.jpg", depois: "img/resultados/caso1-depois.jpg" },
+  { id: 2, antes: "img/resultados/caso2-antes.jpg", depois: "img/resultados/caso2-depois.jpg" },
+  { id: 3, antes: "img/resultados/caso3-antes.jpg", depois: "img/resultados/caso3-depois.jpg" },
+  { id: 4, antes: "img/resultados/caso4-antes.jpg", depois: "img/resultados/caso4-depois.jpg" },
+];
+
+/* ============================================================
+   BEFORE/AFTER SLIDER
+============================================================ */
+function BeforeAfterSlider({ antes, depois }) {
+  const [pos, setPos] = useState(50);
+  const [active, setActive] = useState(false);
+  const wrapRef = useRef(null);
+
+  const updatePos = (clientX) => {
+    if (!wrapRef.current) return;
+    const rect = wrapRef.current.getBoundingClientRect();
+    setPos(Math.max(2, Math.min(98, ((clientX - rect.left) / rect.width) * 100)));
+  };
+
+  useEffect(() => {
+    if (!active) return;
+    const onMove = (e) => {
+      if (!wrapRef.current) return;
+      const rect = wrapRef.current.getBoundingClientRect();
+      setPos(Math.max(2, Math.min(98, ((e.clientX - rect.left) / rect.width) * 100)));
+    };
+    const onUp = () => setActive(false);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    };
+  }, [active]);
+
+  return (
+    <div
+      ref={wrapRef}
+      className="bas-wrap"
+      onMouseDown={(e) => { e.preventDefault(); setActive(true); updatePos(e.clientX); }}
+      onTouchStart={(e) => { setActive(true); updatePos(e.touches[0].clientX); }}
+      onTouchMove={(e) => updatePos(e.touches[0].clientX)}
+      onTouchEnd={() => setActive(false)}
+    >
+      <img className="bas-img" src={depois} alt="Depois" draggable="false" />
+      <img
+        className="bas-img"
+        src={antes}
+        alt="Antes"
+        draggable="false"
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+      />
+      <div className="bas-line" style={{ left: `${pos}%` }}>
+        <div className="bas-handle" aria-hidden="true">
+          <IconSliderArrows />
+        </div>
+      </div>
+      <span className="bas-label bas-l">Antes</span>
+      <span className="bas-label bas-r">Depois</span>
+    </div>
+  );
+}
 
 /* ============================================================
    SIDEBAR
@@ -337,23 +413,6 @@ function PageHome() {
     { num: "Belém", lab: "única especialista na região" },
   ];
 
-  const homeThumbs = [
-    {
-      img: "img/05-antes-depois-1.jpg", num: "01", name: "Helena", time: "6 meses",
-      method: "SEAS",
-      obs: "Curva torácica direita estabilizada após seis meses de fisioterapia ativa."
-    },
-    {
-      img: "img/06-antes-depois-2.jpg", num: "02", name: "Luísa", time: "8 meses",
-      method: "SEAS · S4D",
-      obs: "Redução visível da gibosidade lombar com plano combinado."
-    },
-    {
-      img: "img/07-antes-depois-3.jpg", num: "03", name: "Maria", time: "12 meses",
-      method: "Plano combinado",
-      obs: "Tratamento integrado com colete 3D e acompanhamento contínuo."
-    },
-  ];
 
   return (
     <div className="page" data-screen-label="Home">
@@ -408,7 +467,7 @@ function PageHome() {
         </div>
       </section>
 
-      {/* BEFORE/AFTER SHOWCASE — featured at top */}
+      {/* BEFORE/AFTER SHOWCASE — teaser com 2 casos, link para /resultados */}
       <section className="ba-showcase">
         <div className="wrap">
           <div className="ba-head reveal">
@@ -422,24 +481,11 @@ function PageHome() {
             </p>
           </div>
 
-          <div className="ba-grid reveal">
-            {homeThumbs.map((t, i) => (
-              <a key={i} className="ba-card" href="#/resultados">
-                <div className="ba-photo">
-                  <img src={t.img} alt={t.name} />
-                  <span className="ba-tag">Antes / Depois</span>
-                  <span className="ba-method-pill">{t.method}</span>
-                  <span className="ba-num">{t.num}</span>
-                </div>
-                <div className="ba-meta">
-                  <span className="ba-name">{t.name}</span>
-                  <span className="ba-time">{t.time}</span>
-                </div>
-                <p className="ba-obs">
-                  <span className="lab">Observação</span>
-                  {t.obs}
-                </p>
-              </a>
+          <div className="slider-grid reveal">
+            {CASOS.slice(0, 2).map((c) => (
+              <div className="slider-card" key={c.id}>
+                <BeforeAfterSlider antes={c.antes} depois={c.depois} />
+              </div>
             ))}
           </div>
 
@@ -842,25 +888,6 @@ function PageTratamentos() {
    RESULTADOS
 ============================================================ */
 function PageResultados() {
-  const cases = [
-    {
-      code: "A", img: "img/05-antes-depois-1.jpg", title: "Helena", subtitle: "14 anos · Adolescente",
-      rows: [["Tempo", "6 meses"], ["Método", "SEAS"], ["Foco", "Curva torácica direita"], ["Observação", "Curva estabilizada com SEAS."]]
-    },
-    {
-      code: "B", img: "img/06-antes-depois-2.jpg", title: "Luísa", subtitle: "13 anos · Adolescente",
-      rows: [["Tempo", "8 meses"], ["Método", "SEAS · S4D"], ["Foco", "Curva lombar"], ["Observação", "Redução visível da gibosidade."]]
-    },
-    {
-      code: "C", img: "img/07-antes-depois-3.jpg", title: "Maria", subtitle: "15 anos · Adolescente",
-      rows: [["Tempo", "12 meses"], ["Método", "Plano combinado"], ["Foco", "Curva em duplo arco"], ["Observação", "Tratamento integrado com colete 3D."]]
-    },
-    {
-      code: "D", img: "img/08-costas-com-raiox.jpg", title: "Acompanhamento", subtitle: "Imagem comparativa",
-      rows: [["Recurso", "Raio-X comparativo"], ["Foco", "Estabilização"], ["Plano", "Reavaliação trimestral"], ["Observação", "Documentação contínua do progresso."]]
-    },
-  ];
-
   return (
     <div className="page" data-screen-label="Resultados">
       <div className="wrap">
@@ -872,24 +899,10 @@ function PageResultados() {
           location="Arquivo · Belém"
         />
 
-        <div className="res-grid reveal">
-          {cases.map((c) => (
-            <div className="res-card" key={c.code}>
-              <div className="ph">
-                <img src={c.img} alt={c.title} />
-              </div>
-              <div className="body">
-                <div className="head-row">
-                  <div className="title">{c.title}</div>
-                  <div className="subtitle">{c.subtitle}</div>
-                </div>
-                {c.rows.map(([l, v]) => (
-                  <div className="row" key={l}>
-                    <span className="lab">{l}</span>
-                    <span className="v">{v}</span>
-                  </div>
-                ))}
-              </div>
+        <div className="slider-grid reveal">
+          {CASOS.map((c) => (
+            <div className="slider-card" key={c.id}>
+              <BeforeAfterSlider antes={c.antes} depois={c.depois} />
             </div>
           ))}
         </div>
