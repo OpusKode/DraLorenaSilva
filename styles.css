@@ -2822,8 +2822,10 @@ p { margin: 0 0 1em; }
   /* ── Sections ── */
   .section, .section-dark, .section-accent { padding: 48px 0; }
 
-  /* ── FAB clearance — last element on any page ── */
-  .page { padding-bottom: 120px; }         /* extra bottom for FAB clearance */
+  /* ── FAB clearance — only for pages ending with content inside .wrap
+        (FAQ, Contato). Pages ending with .foot-cta / .brace-hl already
+        have enough bottom padding built-in. ── */
+  .page > .wrap:last-child { padding-bottom: 80px; }
 
   /* ── Brace ── */
   .brace-hl { padding: 48px 0 80px; }      /* extra bottom for FAB clearance */
@@ -2838,7 +2840,7 @@ p { margin: 0 0 1em; }
 
   /* ── Foot CTA ── */
   .foot-cta { padding: 44px 0 80px; }      /* extra bottom for FAB clearance */
-  .foot-cta .btn-primary { width: 100%; justify-content: center; }
+  .foot-cta .btn-primary { width: 100%; justify-content: center; white-space: normal; text-align: center; }
 
   /* ── Stats accent ── */
   .stats-accent-card { padding: 32px 16px; }
