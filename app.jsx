@@ -789,6 +789,7 @@ function PageTratamentos() {
       img: "img/05-paciente-com-progressao.jpg",
       flip: true,
       photoShape: "arched-bottom",
+      imgFit: "contain",
       p1: "O plano de tratamento é desenvolvido de acordo com o que mais você precisa corrigir nos achados da avaliação. Combinamos os métodos SEAS (Itália) e S4D (Brasil).",
       p2: "Os exercícios específicos são destinados a cada tipo de curva, com foco nas assimetrias — trazendo o melhor alinhamento possível dessa coluna e, consequentemente, da estética corporal.",
       feats: [
@@ -834,7 +835,7 @@ function PageTratamentos() {
           <div className="wrap">
             <div className={"tx-grid reveal" + (s.flip ? " flip" : "")}>
               <div className={"tx-photo " + s.photoShape}>
-                <img src={s.img} alt={s.h} />
+                <img src={s.img} alt={s.h} style={s.imgFit ? { objectFit: s.imgFit } : undefined} />
               </div>
               <div className="tx-content">
                 <span className="eyebrow">{s.eyebrow}</span>

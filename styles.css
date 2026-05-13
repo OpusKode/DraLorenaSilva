@@ -1932,7 +1932,7 @@ p { margin: 0 0 1em; }
 .tx-section.dark .feat-grid { border-color: var(--night-rule); }
 .tx-section.dark .feat-grid .item { border-color: var(--night-rule); }
 .tx-section.dark .feat-grid .item .v { color: var(--night-fg); }
-.tx-section.dark .tx-photo { border-color: var(--night-rule); }
+.tx-section.dark .tx-photo { border-color: var(--night-rule); background: var(--night); }
 
 .tx-grid {
   display: grid;
