@@ -8,7 +8,12 @@
       "Bash(npx --yes @babel/core@7 --presets=@babel/preset-react app.jsx -o /tmp/v96_compiled.js)",
       "Bash(node -e \"const fs=require\\('fs'\\); const src=fs.readFileSync\\('app.jsx','utf8'\\); console.log\\('Lines:', src.split\\('\\\\n'\\).length, '| Size:', src.length, 'bytes'\\);\")",
       "Bash(node -e ' *)",
-      "Bash(ls \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\\")"
+      "Bash(ls \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\\")",
+      "PowerShell(Move-Item -Path \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\img\" -Destination \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\public\\\\img\")",
+      "PowerShell(Move-Item -Path \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\styles.css\" -Destination \"D:\\\\Projects\\\\Design\\\\v9\\\\v9-6\\\\Dra__Lorena_Silva_-_v9-6\\\\src\\\\styles.css\")",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
