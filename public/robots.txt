@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dralorenasilva.com/sitemap.xml
+Sitemap: https://dralorenasilva.com.br/sitemap.xml
