@@ -5,13 +5,13 @@ const WHATSAPP = "https://wa.me/5591980876011";
 const INSTAGRAM = "https://instagram.com/lorenafisioterapeuta_";
 
 const NAV = [
-  { id: "home", label: "Início", num: "I" },
-  { id: "sobre", label: "Sobre", num: "II" },
-  { id: "tratamentos", label: "Tratamentos", num: "III" },
-  { id: "resultados", label: "Resultados", num: "IV" },
-  { id: "colete-3d", label: "Colete 3D", num: "V" },
-  { id: "faq", label: "FAQ", num: "VI" },
-  { id: "contato", label: "Contato", num: "VII" },
+  { id: "home", label: "Início"},
+  { id: "sobre", label: "Sobre" },
+  { id: "tratamentos", label: "Tratamentos"},
+  { id: "resultados", label: "Resultados"},
+  { id: "colete-3d", label: "Colete 3D"},
+  { id: "faq", label: "FAQ"},
+  { id: "contato", label: "Contato"},
 ];
 
 const ACCENTS = [
@@ -311,9 +311,9 @@ function Sidebar({ route, mobileOpen, setMobileOpen }) {
             href={"#/" + n.id}
             className={"nav-item" + (route === n.id ? " active" : "")}
             onClick={() => setMobileOpen(false)}>
-            <span className="num">{n.num}</span>
+            <span></span>
             <span>{n.label}</span>
-            <span className="arrow"><IconArrow /></span>
+            <span className="arrow"><IconArrow/></span>
           </a>
         ))}
       </nav>
@@ -1142,7 +1142,7 @@ function PageFAQ() {
     ["O colete 3D é sempre necessário?", "Não. A indicação depende da gravidade da curva e da fase de crescimento. É decidido caso a caso."],
     ["Os planos cobrem o atendimento?", "O atendimento é particular. Posso emitir nota fiscal e recibo para reembolso, conforme o seu plano."],
   ];
-  const codes = ["A", "B", "C", "D", "E", "F", "G"];
+  const codes = ["1", "2", "3", "4", "5", "6", "7"];
   const [open, setOpen] = useState(0);
   return (
     <div className="page" data-screen-label="FAQ">
