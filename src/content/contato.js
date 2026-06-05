@@ -13,10 +13,10 @@ export const CONTATO = {
     capStrong: "Endereço",                                          // Etiqueta em negrito do topo do cartão
     capRight: "★ Belém / PA",                                       // Texto à direita do cartão
     linhas: [
-      "Av. Conselheiro Furtado, 2865",                              // Linha 1 do endereço
-      "Ed. Síntese 21 · Sala 1902",                                 // Linha 2 do endereço
+      "Av. Gov. José Malcher, 1077",                              // Linha 1 do endereço
+      "Ed. Empresarial Acrópole · Sala 1011",                                 // Linha 2 do endereço
     ],
-    small: "Cremação · Belém / PA · CEP 66063-060",                 // Texto pequeno final do cartão
+    small: "Nazaré · Belém / PA · CEP 66055-260",                 // Texto pequeno final do cartão
   },
 
   // Botões de contato (abaixo do cartão de endereço)
@@ -27,22 +27,22 @@ export const CONTATO = {
 
   // Legenda do mapa (canto superior direito do quadro do mapa)
   mapCap: {
-    left: "Mapa · Cremação",                                        // Texto à esquerda
-    rightHtml: "<strong>★ FIG. C</strong>",                         // Texto à direita
+    left: "Mapa · Nazaré",                                        // Texto à esquerda
+    rightHtml: "<strong>★ Endereço</strong>",                         // Texto à direita
   },
 
   // Configuração do mapa Leaflet
   map: {
-    lat: -1.4558,                                                   // Latitude do consultório
-    lng: -48.4902,                                                  // Longitude do consultório
+    lat: -1.44998,                                                   // Latitude do consultório
+    lng: -48.48379,                                                  // Longitude do consultório
     initialZoom: 13,                                                // Zoom inicial (antes do fly-to)
     finalZoom: 16,                                                  // Zoom final após o fly-to
     flyDelayMs: 400,                                                // Tempo (ms) antes do fly-to começar
-    googleMapsUrl: "https://maps.google.com/?q=Av.+Conselheiro+Furtado,+2865,+Bel%C3%A9m+PA", // Link "Abrir no Google Maps"
+    googleMapsUrl: "https://maps.app.goo.gl/Mz39GFVqTp4MzeLh7", // Link "Abrir no Google Maps"
     popup: {
       tag: "Fisioterapia · Escoliose",                              // Etiqueta no topo do popup
       name: "Dra. Lorena Silva",                                    // Nome no popup
-      addrHtml: "Av. Conselheiro Furtado, 2865<br>Ed. Síntese 21 · Sala 1902<br>Cremação · Belém / PA", // Endereço no popup (use <br> para quebrar linhas)
+      addrHtml: "Av. Gov. José Malcher, 1077<br>Ed. Empresarial Acrópole · Sala 1011<br>Nazaré · Belém / PA", // Endereço no popup (use <br> para quebrar linhas)
       btn: "Abrir no Google Maps →",                                // Texto do botão do popup
     },
   },
