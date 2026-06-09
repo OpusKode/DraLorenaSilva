@@ -70,7 +70,7 @@ export const COLETE3D = {
     cta: "Quero saber se o colete 3D é indicado para mim",
     side: [
       { k: "WhatsApp", v: "(91) 98087-6011" },
-      { k: "Endereço", v: "Síntese 21 · Sala 1902 · Belém / PA" },
+      { k: "Endereço", v: "Ed. Empresarial Acrópole · Sala 1011 · Belém / PA" },
     ],
   },
 };

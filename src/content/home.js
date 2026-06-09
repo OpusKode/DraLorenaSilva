@@ -92,7 +92,7 @@ export const HOME = {
     lede: "A avaliação detalhada é o ponto de partida. Mande mensagem pelo WhatsApp e marcamos um horário que cabe na sua semana.", // Parágrafo
     cta: "Agendar avaliação",                                       // Texto do botão
     side: [
-      { k: "Endereço",  v: "Av. Conselheiro Furtado, 2865 · Síntese 21 · Sala 1902" },
+      { k: "Endereço",  v: "Av. Gov. José Malcher, 1077 · Ed. Empresarial Acrópole · Sala 1011" },
       { k: "WhatsApp",  v: "(91) 98087-6011" },
       { k: "Cidade",    v: "Belém / Pará · Brasil" },
     ],

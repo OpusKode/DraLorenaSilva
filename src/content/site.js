@@ -13,7 +13,7 @@ export const SITE = {
     ariaWhatsapp: "WhatsApp",                                       // aria-label do ícone de WhatsApp
     ariaInstagram: "Instagram",                                     // aria-label do ícone de Instagram
     copyright: "© 2026",                                            // Copyright à esquerda
-    creditedBy: "FORJARIS",                                           // Credito à direita
+    creditedBy: "OPUSKODE",                                           // Credito à direita
   },
 
   mobileHeader: {
